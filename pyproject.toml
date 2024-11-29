@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "detection"
 version = "0.1.0"
-description = ""
+description = "Deepface Wrapper for Face detection API using OpenCV"
 authors = ["Hamza Qureshi <hamza7771.861@gmail.com>"]
 readme = "README.md"
 
@@ -14,6 +14,7 @@ pydantic = "^2.10.2"
 fastapi = "^0.115.5"
 python-multipart = "^0.0.18"
 uvicorn = "^0.32.1"
+pillow = "^11.0.0"
 
 
 [build-system]
