@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "detection"
+version = "0.1.0"
+description = ""
+authors = ["Hamza Qureshi <hamza7771.861@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+opencv-python = "^4.10.0.84"
+deepface = "^0.0.93"
+tf-keras = "^2.18.0"
+pydantic = "^2.10.2"
+fastapi = "^0.115.5"
+python-multipart = "^0.0.18"
+uvicorn = "^0.32.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
