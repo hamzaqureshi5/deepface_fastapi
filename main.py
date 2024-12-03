@@ -4,6 +4,7 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
+import os
 # import cv2
 import uvicorn
 import numpy as np
@@ -63,8 +64,8 @@ async def process_image(image: UploadFile = File(...)):
             content={"error": f"An unexpected error occurred: {str(e)}"},
         )
 
-import os
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = '0'
+os.environ['DEEPFACE_HOME'] = "C:/Users/hamza.qureshi/PycharmProjects/deepface_repr"
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)

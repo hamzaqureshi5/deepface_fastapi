@@ -6,8 +6,8 @@
 
 
 import numpy as np
-from detection.detection import process_image_pred
+from detection.detection import process_image_prediction
 
 
 def process_wrapper(input_image: np.ndarray):
-    return process_image_pred(input_image)
+    return process_image_prediction(input_image)
