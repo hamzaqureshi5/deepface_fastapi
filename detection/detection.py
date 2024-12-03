@@ -15,7 +15,7 @@ def process_image_pred(input_image: np.ndarray) -> Union[dict, None]:
             actions=["age", "gender", "emotion"],
             detector_backend="opencv",
             anti_spoofing=False,
-            enforce_detection=True,
+            enforce_detection=False,
             expand_percentage=100,
         )
         age = result[0]["age"]

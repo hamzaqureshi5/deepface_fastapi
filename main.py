@@ -1,13 +1,10 @@
-
-
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-
-#import cv2
+# import cv2
 import uvicorn
 import numpy as np
 from fastapi import FastAPI, File, UploadFile
@@ -15,12 +12,14 @@ from fastapi.responses import JSONResponse
 from io import BytesIO
 from PIL import Image
 from api.utlity import process_wrapper
+
 app = FastAPI()
 
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to FastAPI with Poetry!"}
+
 
 @app.post("/img")
 async def process_image(image: UploadFile = File(...)):
@@ -41,7 +40,7 @@ async def process_image(image: UploadFile = File(...)):
 
         # Convert the image to a NumPy array
         image_array = np.array(image_pil)
-
+        print('len: ', len(image_array), 'shape: ', image_array.shape)
         result = process_wrapper(image_array)
 
         if result is None:
@@ -60,13 +59,12 @@ async def process_image(image: UploadFile = File(...)):
         )
     except Exception as e:
         return JSONResponse(
-        status_code=500,
-        content={"error": f"An unexpected error occurred: {str(e)}"},
-    )
+            status_code=500,
+            content={"error": f"An unexpected error occurred: {str(e)}"},
+        )
 
+import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
-
-import  os
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
-
